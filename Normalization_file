@@ -1,14 +1,19 @@
 Passport Application Form: Database Normalization
 
-Database Description: The Passport Application Database is designed to store and manage information about applicants, their family details, addresses, emergency contacts, passport issuance, and criminal proceedings. The database is structured to capture key information for passport issuance and verification for official record-keeping purposes. This database facilitates efficient tracking, management, and reporting of passport application status, applicant details, and emergency contact information.
+Database Description: The Passport Application Database is designed to store and manage information about applicants, their family details, 
+addresses, emergency contacts, passport issuance, and criminal proceedings. The database is structured to capture key information for passport
+issuance and verification for official record-keeping purposes. This database facilitates efficient tracking, management, and reporting of passport
+application status, applicant details, and emergency contact information.
 
 Normalization Breakdown
 First Normal Form (1NF):
 1NF requires that each column contains only atomic (indivisible) values and that there are no repeating groups.
 
-Applicant Table: Contains atomic values like Given Name, Surname, Date of Birth, Place of Birth, etc. The attributes are clearly defined and separated; for example, each contact number or email address is stored in its own field.
+Applicant Table: Contains atomic values like Given Name, Surname, Date of Birth, Place of Birth, etc. The attributes are clearly defined and 
+separated; for example, each contact number or email address is stored in its own field.
 FamilyDetails Table: Stores atomic values like Father Name, Mother Name, Spouse Name, etc., with no repeating groups.
-Address Table: Contains atomic values for each address type (present or permanent) and ensures that each address-related detail (e.g., City, State/UT, PIN) is stored in its respective column.
+Address Table: Contains atomic values for each address type (present or permanent) and ensures that each address-related detail (e.g., City,
+State/UT, PIN) is stored in its respective column.
 EmergencyContact Table: Stores Name, Contact Address, Mobile Number, and Email ID in separate fields to ensure atomicity.
 Passport Table: Attributes like Passport Number, Type of Application, Type of Booklet, and Validity Required are atomic values.
 CriminalProceedings Table: Contains atomic values for details related to any criminal proceedings against the applicant.
