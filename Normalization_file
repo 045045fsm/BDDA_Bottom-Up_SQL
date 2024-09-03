@@ -1,0 +1,44 @@
+Passport Application Form: Database Normalization
+
+Database Description: The Passport Application Database is designed to store and manage information about applicants, their family details, addresses, emergency contacts, passport issuance, and criminal proceedings. The database is structured to capture key information for passport issuance and verification for official record-keeping purposes. This database facilitates efficient tracking, management, and reporting of passport application status, applicant details, and emergency contact information.
+
+Normalization Breakdown
+First Normal Form (1NF):
+1NF requires that each column contains only atomic (indivisible) values and that there are no repeating groups.
+
+Applicant Table: Contains atomic values like Given Name, Surname, Date of Birth, Place of Birth, etc. The attributes are clearly defined and separated; for example, each contact number or email address is stored in its own field.
+FamilyDetails Table: Stores atomic values like Father Name, Mother Name, Spouse Name, etc., with no repeating groups.
+Address Table: Contains atomic values for each address type (present or permanent) and ensures that each address-related detail (e.g., City, State/UT, PIN) is stored in its respective column.
+EmergencyContact Table: Stores Name, Contact Address, Mobile Number, and Email ID in separate fields to ensure atomicity.
+Passport Table: Attributes like Passport Number, Type of Application, Type of Booklet, and Validity Required are atomic values.
+CriminalProceedings Table: Contains atomic values for details related to any criminal proceedings against the applicant.
+
+Second Normal Form (2NF):
+2NF eliminates partial dependencies, meaning every non-prime attribute must depend on the whole primary key.
+
+Applicant Table: ApplicantID is the primary key, and all attributes (e.g., Given Name, Surname, Date of Birth) depend entirely on it, satisfying 2NF.
+FamilyDetails Table: The FamilyID is the primary key, and attributes like Father Name and Mother Name fully depend on it.
+Address Table: The AddressID is the primary key, and all attributes such as HouseNoStreetName, City, StateUT, and PIN fully depend on it.
+EmergencyContact Table: The ContactID is the primary key, and all attributes (Name, Mobile Number, Email ID) depend on it.
+Passport Table: The PassportID is the primary key, and attributes like Type of Application, Type of Booklet, and Validity Required depend entirely on it.
+CriminalProceedings Table: The ProceedingID is the primary key, and all attributes are dependent on it.
+Third Normal Form (3NF):
+In 3NF, every non-key attribute must depend only on the primary key and not on other non-key attributes.
+
+Applicant Table: Attributes are all related to the applicant and do not depend on each other.
+FamilyDetails Table: No transitive dependencies; all fields are directly dependent on the primary key FamilyID.
+Address Table: No transitive dependencies; each attribute is directly dependent on AddressID.
+EmergencyContact Table: No transitive dependencies; all attributes depend directly on ContactID.
+Passport Table: The attributes are directly dependent on PassportID.
+CriminalProceedings Table: All attributes are directly dependent on ProceedingID.
+Database Structure Overview:
+The database contains six main tables:
+
+Applicant
+FamilyDetails
+Address
+EmergencyContact
+Passport
+CriminalProceedings
+These tables are interlinked using relationships and foreign key constraints to ensure data integrity and efficient querying.
+
